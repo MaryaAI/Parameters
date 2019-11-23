@@ -1,0 +1,20 @@
+model_dir: run/
+
+data:
+  train_features_file: src-train.txt
+  train_labels_file: tgt-train.txt
+  eval_features_file: src-val.txt
+  eval_labels_file: tgt-val.txt
+  source_vocabulary: src-vocab.txt
+  target_vocabulary: tgt-vocab.txt
+  
+  
+  train:
+   sample_buffer_size: -1
+   
+eval:
+  external_evaluators: bleu
+  early_stopping:
+    metric: bleu
+    min_improvement: 0.2
+    steps: 4
