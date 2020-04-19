@@ -1,0 +1,20 @@
+model_dir: run/
+
+data:
+  train_features_file:flt-src-TED2013-v1_1.ar-en.en
+  train_labels_file:flt-src-TED2013-v1_1.ar-en.ar
+  eval_features_file:flt-vld-TED2013-v1_1.ar-en.en
+  eval_labels_file:flt-vld-TED2013-v1_1.ar-en.ar
+  source_vocabulary:flt-tst-TED2013-v1_1.ar-en.en
+  target_vocabulary:flt-tst-TED2013-v1_1.ar-en.ar
+  
+  
+  train:
+   sample_buffer_size: -1
+   
+eval:
+  external_evaluators: bleu
+  early_stopping:
+    metric: bleu
+    min_improvement: 0.2
+    steps: 4
